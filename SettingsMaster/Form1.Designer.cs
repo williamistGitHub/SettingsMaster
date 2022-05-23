@@ -38,6 +38,7 @@ namespace SettingsMaster
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.mainSplitContainer)).BeginInit();
             this.mainSplitContainer.Panel1.SuspendLayout();
             this.mainSplitContainer.Panel2.SuspendLayout();
@@ -96,6 +97,7 @@ namespace SettingsMaster
             // mainSplitContainer.Panel2
             // 
             this.mainSplitContainer.Panel2.AutoScroll = true;
+            this.mainSplitContainer.Panel2.Controls.Add(this.button1);
             this.mainSplitContainer.Panel2.Controls.Add(this.comboBox2);
             this.mainSplitContainer.Panel2.Controls.Add(this.label4);
             this.mainSplitContainer.Panel2.Controls.Add(this.label3);
@@ -132,7 +134,7 @@ namespace SettingsMaster
             this.label3.Font = new System.Drawing.Font("Segoe UI", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label3.Location = new System.Drawing.Point(0, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(496, 55);
+            this.label3.Size = new System.Drawing.Size(498, 55);
             this.label3.TabIndex = 2;
             this.label3.Text = "Display Settings";
             this.label3.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -159,6 +161,16 @@ namespace SettingsMaster
             this.label2.TabIndex = 0;
             this.label2.Text = "Display Zoom:";
             // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::SettingsMaster.Properties.Resources.cursor1;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button1.Location = new System.Drawing.Point(45, 151);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(177, 144);
+            this.button1.TabIndex = 5;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -168,6 +180,7 @@ namespace SettingsMaster
             this.Name = "Form1";
             this.Text = "SettingsMaster v0.0";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.mainSplitContainer.Panel1.ResumeLayout(false);
             this.mainSplitContainer.Panel1.PerformLayout();
             this.mainSplitContainer.Panel2.ResumeLayout(false);
@@ -189,6 +202,7 @@ namespace SettingsMaster
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
     }
 }
 

@@ -7,13 +7,14 @@ namespace SettingsMaster
     {
         private SettingsPage[] pages =
         {
-            new SettingsPage("Mouse Settings", new Setting[] {
-                new SettingLabel("Test Label"),
-                new SettingLabel("Label 2 :D")
-            }),
-            new SettingsPage("Display Settings", new Setting[] {
-                new SettingLabel("page 2 :d"),
-                new SettingLabel("wonder if this will work?")
+            new SettingsPage("Cursor Settings", new Setting[] {
+                new SettingLabel("Choose a cursor:"),
+                new SettingHorizontalFlow(new Setting[] {
+                    new SettingImageButton(Properties.Resources.cursor1, 0.2f),
+                    new SettingImageButton(Properties.Resources.apple1, 0.2f)
+                }),
+                new SettingLabel("Or upload a custom one:"),
+                new SettingButton("Upload Cursor File (*.cur)")
             })
         };
 
@@ -28,8 +29,7 @@ namespace SettingsMaster
             categoriesListBox.SelectedIndex = 0; // Make sure the first item is selected.
 
             // display first page
-            mainSplitContainer.Panel2.Controls.Clear();
-            pages[0].DisplaySettingsPage(mainSplitContainer.Panel2);
+            RebuildPageControls();
         }
 
         private void PopulateCategoriesList()
@@ -43,10 +43,20 @@ namespace SettingsMaster
             categoriesListBox.Items.Add("Taskbar Settings");*/
         }
 
-        private void categoriesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        private void RebuildPageControls()
         {
             mainSplitContainer.Panel2.Controls.Clear();
             pages[categoriesListBox.SelectedIndex].DisplaySettingsPage(mainSplitContainer.Panel2);
+        }
+
+        private void categoriesListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RebuildPageControls();
+        }
+
+        private void Form1_Resize(object sender, EventArgs e)
+        {
+            RebuildPageControls();
         }
     }
 }
